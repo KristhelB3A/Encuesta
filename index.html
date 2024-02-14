@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de datos con ChartJS</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Resultados de la encuesta</h1>
+        <div class="pregunta">
+            <h2>Pregunta 1</h2>
+            <h3>¿Se han presentado situaciones de inseguridad recientemente en el sector donde reside?</h3>
+            <div class="grafico">
+                <canvas id="pregunta1"></canvas>
+            </div>  
+        </div>
+        <div class="pregunta">
+          <h2>Pregunta 2</h2>
+        <h3>¿Ha presenciado un asalto en su vivienda o una vivienda cercana?</h3>
+        <div class="grafico">
+           <canvas id="pregunta2"></canvas> 
+        </div>  
+        </div>
+        <div class="pregunta">
+          <h2>Pregunta 3</h2>
+        <h3>¿Sale frecuentemente de casa?</h3>
+        <div class="grafico">
+            <canvas id="pregunta3"></canvas>
+        </div>  
+        </div>
+        <div class="pregunta">
+          <h2>Pregunta 4</h2>
+        <h3>¿Considera que es peligroso salir de casa?</h3>
+        <div class="grafico">
+            <canvas id="pregunta4"></canvas>
+        </div>  
+        </div>
+        <div class="pregunta">
+           <h2>Pregunta 5</h2>
+        <h3>¿Cuenta con un dispositivo móvil que tenga acceso a Internet?</h3>
+        <div class="grafico">
+            <canvas id="pregunta5"></canvas>
+        </div> 
+        </div>
+        <div class="pregunta">
+           <h2>Pregunta 6</h2>
+        <h3>¿Alguna vez ha olvidado sus llaves y no ha podido ingresar a su vivienda?</h3>
+        <div class="grafico">
+            <canvas id="pregunta6"></canvas>
+        </div> 
+        </div>
+        <div class="pregunta">
+           <h2>Pregunta 7</h2>
+        <h3>¿Cómo protege su vivienda mientras se encuentra fuera de la misma?</h3>
+        <div class="grafico">
+            <canvas id="pregunta7"></canvas>
+        </div> 
+        </div>
+        <div class="pregunta">
+           <h2>Pregunta 8</h2>
+        <h3>¿Considera usted que el método que utiliza para la protección de su vivienda es eficiente?</h3>
+        <div class="grafico">
+            <canvas id="pregunta8"></canvas>
+        </div> 
+        </div>
+        <div class="pregunta">
+            <h2>Pregunta 9</h2>
+        <h3>¿Consideraría usted cambiar sus llaves físicas por una llave digital?</h3>
+        <div class="grafico">
+           <canvas id="pregunta9"></canvas> 
+        </div>
+        </div>
+        <div class="pregunta">
+           <h2>Pregunta 10</h2>
+        <h3>¿Qué opina sobre usar una huella dactilar para un sistema de acceso residencial?</h3>
+        <div class="grafico">
+           <canvas id="pregunta10"></canvas> 
+        </div> 
+        </div>
+        <div class="pregunta">
+           <h2>Pregunta 11</h2>
+        <h3>¿Estaría dispuesto a cambiar su cerradura tradicional por una cerradura electrónica?</h3>
+        <div class="grafico">
+            <canvas id="pregunta11"></canvas>
+        </div> 
+        </div>
+        <div class="pregunta">
+            <h2>Pregunta 12</h2>
+        <h3>Pondría a prueba un sistema de seguridad que use reconocimiento de huella dactilar</h3>
+        <div class="grafico">
+            <canvas id="pregunta12"></canvas>
+        </div>
+        </div>
+        <div class="pregunta">
+          <h2>Pregunta 13</h2>
+        <h3>¿Utilizaría el método descrito anteriormente si se demuestra que es eficiente y de bajo costo?</h3>
+        <div class="grafico">
+            <canvas id="pregunta13"></canvas>
+        </div>  
+        </div>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const p1 = document.getElementById('pregunta1');
+      
+        new Chart(p1, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'sí, casi a diario',
+                'Sí, con poca frecuencia',
+                'Antes, ahora el sector es más seguro',
+                'No, es un sector tranquilo'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [85, 103, 12, 43],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A',
+                    '#81689D',
+                    '#FFD0EC'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+          }
+        });
+        const p2 = document.getElementById('pregunta2');
+      
+        new Chart(p2, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí, he sido víctima de un asalto',
+                'Sí, le sucedio a un vecino/familiar',
+                'No, es un sector tranquilo'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [10, 64, 171],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A',
+                    '#81689D'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+        
+          }
+        });
+
+        const p3 = document.getElementById('pregunta3');
+      
+        new Chart(p3, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Todos los días por motivos de trabajo/estudio',
+                'Unos cuantos días a la semana',
+                'Solo los fines de semana',
+                'Evito salir de casa, solo salgo si es necesario'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [94, 94, 23, 34],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A',
+                    '#81689D',
+                    '#FFD0EC'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+        
+            
+          }
+        });
+
+        const p4 = document.getElementById('pregunta4');
+      
+        new Chart(p4, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí',
+                'No'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [174, 71],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+        
+            
+          }
+        });
+
+        const p5 = document.getElementById('pregunta5');
+      
+        new Chart(p5, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí, tengo un dispositivo móvil y acceso a Internet todo el tiempo',
+                'No, tengo un dispositivo móvil pero no acceso a Internet',
+                'No, no cuento con un dispositivo móvil',
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [226, 16, 3],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A',
+                    '#81689D'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+        
+            
+          }
+        });
+
+        const p6 = document.getElementById('pregunta6');
+      
+        new Chart(p6, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí, con mucha frecuencia',
+                'Sí, unas pocas veces',
+                'Sí, pero suelo tener un repuesto',
+                'No'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [36, 128, 29, 52],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A',
+                    '#81689D',
+                    '#FFD0EC'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+        
+            
+          }
+        });
+
+        const p7 = document.getElementById('pregunta7');
+      
+        new Chart(p7, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Tengo un sistema de vigilancia las 24 horas',
+                'Contraté un servicio de seguridad privado',
+                'Cerrando las puertas y ventanas con seguro',
+                'No tengo un método de protección para mi casa'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [16, 3, 154, 72],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A',
+                    '#81689D',
+                    '#FFD0EC'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+           
+          }
+        });
+
+        const p8 = document.getElementById('pregunta8');
+      
+        new Chart(p8, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí',
+                'No'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [87, 158],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+        
+            
+          }
+        });
+
+        const p9 = document.getElementById('pregunta9');
+      
+        new Chart(p9, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí',
+                'No'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [188, 58],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+            
+          }
+        });
+
+        const p10 = document.getElementById('pregunta10');
+      
+        new Chart(p10, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Seria eficiente, rápido y no necesitaría cargar mis llaves todo el tiempo.',
+                'Podría salir sin preocupaciones.',
+                'No lo considero ni apropiado ni eficiente.'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [146, 75, 24],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A',
+                    '#81689D'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+            
+          }
+        });
+
+        const p11 = document.getElementById('pregunta11');
+      
+        new Chart(p11, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí',
+                'No'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [205, 40],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+        
+            
+          }
+        });
+
+        const p12 = document.getElementById('pregunta12');
+      
+        new Chart(p12, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí',
+                'No'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [220, 25],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+        
+            
+          }
+        });
+
+        const p13 = document.getElementById('pregunta13');
+      
+        new Chart(p13, {
+          type: 'doughnut',
+          data: {
+            labels: [
+                'Sí',
+                'talvez',
+                'No'
+            ],
+             datasets: [{
+                label: 'Resultados de la pregunta',
+                data: [140, 96, 9],
+                backgroundColor: [
+                    '#1F2544',
+                    '#474F7A',
+                    '#81689D'
+                ],
+                hoverOffset: 4
+            }]
+          },
+          options: {
+          }
+        });
+      </script>
+</body>
+
+</html>
+
+
